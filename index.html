@@ -1,1 +1,49 @@
-<center><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSgp3c9AX3EgkGAVpD757nagOdkEoMF2r3YgkoD5ELCkvyJP7EnhrGjbX97Dga1TRDQqwtb9eumUgpjBa_yMYoY5dggHOR7sp36FHIT2A"></img></center>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ki4arl</title>
+</head>
+<body>
+    <div class="center">
+        <div class="hours" id="time"></div>
+        <div class="logo">
+            <span style="font-size: 128px;">K</span>i4arl
+            <!-- потом пофикшу эту хуйню 
+                <img style="position: absolute; margin-right: -60px;" src="img/avatar.png"> 
+            -->
+        </div>
+        <div class="links">
+            <a href="#"><img src="img/tg.svg"></a>
+            <a href="#"><img src="img/tg.svg"></a>
+            <a href="#"><img src="img/tg.svg"></a>
+            <a href="#"><img src="img/tg.svg"></a>
+        </div>
+    </div>
+    <script>
+        let html = document.documentElement
+        let deg = 120
+
+        function time() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+
+            if (hours < 10) hours = "0" + hours;
+            if (minutes < 10) minutes = "0" + minutes;
+            document.getElementById("time").innerHTML = hours + ":" + minutes;
+        }
+        time();
+
+        let tick = () => {
+            html.style.background = `linear-gradient(${deg++ / 10 % 360}deg, rgb(73, 73, 73) 0%, black 100%)`
+            requestAnimationFrame(tick)
+        }
+        requestAnimationFrame(tick)
+
+        setInterval(time, 1000);
+    </script>
+</body>
+</html>
